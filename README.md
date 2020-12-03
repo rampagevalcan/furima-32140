@@ -2,15 +2,16 @@
 
 ## users テーブル
 
-| Column           | Type     | Options                  |
-| -----------------| ---------| ------------------------ |
-| nicname          | string   | null: false              |
-| email            | string   | null: false unique: true |
-| family_name      | string   | null: false              | 
-| first_name       | string   | null: false              |
-| family_name_kana | string   | null: false              |
-| first_name_kana  | string   | null: false              |
-| birthday         | date     | null: false              |
+| Column             | Type     | Options                  |
+| -------------------| ---------| ------------------------ |
+| nickname           | string   | null: false              |
+| email              | string   | null: false unique: true |
+| encrypted_password | string   | null:false               |
+| family_name        | string   | null: false              | 
+| first_name         | string   | null: false              |
+| family_name_kana   | string   | null: false              |
+| first_name_kana    | string   | null: false              |
+| birthday           | date     | null: false              |
 
 ### Association
 has_many: items
@@ -22,11 +23,11 @@ has_many: purchase_records
 | ------------------| ---------- | ------------------|
 | item_name         | string     | null: false       |
 | item_description  | text       | null: false       |
-| category          | string     | null: false       |
-| item_condition    | string     | null: false       |
-| shopping_fee      | string     | null: false       |
-| ship_form         | string     | null: false       |
-| delivery_time     | datetime   | null: false       |
+| category_id       | integer    | null: false       |
+| item_condition_id | integer    | null: false       |
+| shopping_fee_id   | integer    | null: false       |
+| ship_form_id      | integer    | null: false       |
+| delivery_time_id  | integer    | null: false       |
 | price             | integer    | null: false       |
 | user              | reference  | foreign_key: true |
 
@@ -43,7 +44,7 @@ has_one: purchase_record
 | city             | string     | null: false                    |
 | house_number     | string     | null: false                    |
 | building_name    | string     |                                |
-| telephone_number | integer    | null: false                    |
+| telephone_number | string     | null: false                    |
 | purchase_record  | reference  | null: false, foreign_kry: true |
 
 ### Association
