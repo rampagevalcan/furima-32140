@@ -1,0 +1,59 @@
+<mxfile host="65bd71144e" modified="2020-12-03T09:26:43.411Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" version="13.6.5" etag="YJgjSzEamzxIs5fmQpX0">
+    <diagram id="wVXsj47Wq1ZfCqgYfPUb" name="ページ1">
+        <mxGraphModel dx="713" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;startFill=0;startSize=7;endArrow=ERmany;endFill=0;strokeColor=#f0f0f0;fontSize=14;" edge="1" parent="1" source="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="160" y="320" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="usersテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="240" height="200" as="geometry">
+                        <mxRectangle x="40" y="40" width="120" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="nicname(string型,NOT NULLl)&#10;email(string型,Not NULL)&#10;password(string型,NOT NULL)&#10;family_name(string型,NOT NULL)&#10;first_name(string型,NOT NULL)&#10;family_name_kana(string型,NOT NULL)&#10;first_name_kana(string型,NOT NULL)&#10;birth_year(datetime型,NOT NULL)&#10;birth_month(datetime型,NOT NULL)&#10;birth_day(datetime,NOT FULL)&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="2" vertex="1">
+                    <mxGeometry y="30" width="240" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="itemsテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="40" width="240" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="image(Active Storageで実装)&#10;image_name(string型,NOT NULL)&#10;image_description(text型,NOT NULL)&#10;category(string型,NOT NULL)&#10;item_condition(string型,NOT NULL)&#10;shopping_fee(string型,NOT NULL)&#10;ship_form(string型,NOT NULL)&#10;deliverytime(datetime型,NOT NULL)&#10;price(integer,NOT NULL)&#10;user(reference型）" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="37" vertex="1">
+                    <mxGeometry y="30" width="240" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="270" y="330" as="sourcePoint"/>
+                        <mxPoint x="370" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="purchase_recodes型" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="322.5" width="230" height="155" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="user(reference型)&#10;item(referrence型)&#10;address(reference型)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="42">
+                    <mxGeometry y="30" width="230" height="125" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="addressesテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="320" width="240" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="postal_code(string型,NOT NULL)&#10;prefecture(string型,NOT NULL)&#10;city(string型,NOT NULL)&#10;house_number(string型,NOT NULL)&#10;building_name(string型,NOT NULL)&#10;telephone_number(integer型,NOT NULL)&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="39" vertex="1">
+                    <mxGeometry y="30" width="240" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="" style="endArrow=ERmandOne;html=1;rounded=0;fontSize=14;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="390" as="sourcePoint"/>
+                        <mxPoint x="360" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="67" value="" style="endArrow=ERmany;html=1;rounded=0;strokeColor=#f0f0f0;fontSize=14;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="280" y="150" as="sourcePoint"/>
+                        <mxPoint x="370" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
