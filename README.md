@@ -26,7 +26,7 @@ has_many: purchase_records
 | category_id       | integer    | null: false       |
 | item_condition_id | integer    | null: false       |
 | shopping_fee_id   | integer    | null: false       |
-| ship_form_id      | integer    | null: false       |
+| prefecture_id     | integer    | null: false       |
 | delivery_time_id  | integer    | null: false       |
 | price             | integer    | null: false       |
 | user              | reference  | foreign_key: true |
