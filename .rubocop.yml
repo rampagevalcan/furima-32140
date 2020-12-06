@@ -52,7 +52,11 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
  Enabled: false
 
+<<<<<<< Updated upstream
 # 空メソッドの場合に、1行のスタイルにしない NG例：def style1; end
+=======
+# 空メソッドの場合に、1行のスタイルにしない　NG例：def style1; end
+>>>>>>> Stashed changes
 Style/EmptyMethod:
  EnforcedStyle: expanded
 
