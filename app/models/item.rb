@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     validates :image
     validates :item_name
     validates :item_description
-  with_options numericality: { other_than: 1 } do
+    with_options numericality: { other_than: 1 } do
       validates :category_id
       validates :item_condition_id
       validates :shopping_fee_id
