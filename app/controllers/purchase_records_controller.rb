@@ -1,4 +1,6 @@
 class PurchaseRecordsController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action :move_to_index
   def index
     @item = Item.find(params[:item_id])
     @purchase_record_address = PurchaseRecordAddress.new
@@ -30,4 +32,11 @@ class PurchaseRecordsController < ApplicationController
         currency: 'jpy'
       )
     end
-end
+
+    def move_to_index
+      @item = Item.find(params[:item_id])
+      unless @item.user_id != current_user.id
+        redirect_to root_path
+      end
+    end
+  end
