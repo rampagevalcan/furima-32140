@@ -77,6 +77,12 @@ RSpec.describe PurchaseRecordAddress, type: :model do
         @purchase_record_address.valid?
         expect(@purchase_record_address.errors.full_messages).to include("Item can't be blank")
       end
+
+      it '電話番号が英字混合のとき' do
+        @purchase_record_address.telephone_number = '000abcdefgh'
+        @purchase_record_address.valid?
+        expect(@purchase_record_address.errors.full_messages).to include("Telephone number is invalid")
+      end
     end
   end
 end
