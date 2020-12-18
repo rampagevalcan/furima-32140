@@ -2,12 +2,10 @@ class PurchaseRecordsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :move_to_index
   def index
-    @item = Item.find(params[:item_id])
     @purchase_record_address = PurchaseRecordAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase_record_address = PurchaseRecordAddress.new(purchase_record_params)
     if @purchase_record_address.valid?
       pay_item
@@ -35,6 +33,11 @@ class PurchaseRecordsController < ApplicationController
 
   def move_to_index
     @item = Item.find(params[:item_id])
-    redirect_to root_path unless @item.user_id != current_user.id
+    if current_user == @item.user
+      redirect_to root_path
+    else
+      @item.purchase_record.blank?
+      redirect_to root_path
+    end
   end
 end
