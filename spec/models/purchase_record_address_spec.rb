@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe PurchaseRecordAddress, type: :model do
   before do
-    @purchase_record_address = FactoryBot.build(:purchase_record_address)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @purchase_record_address = FactoryBot.build(:purchase_record_address,user_id:@user.id,item_id:@item.id)
+  sleep(1)
   end
 
   describe '商品購入' do
@@ -73,7 +76,7 @@ RSpec.describe PurchaseRecordAddress, type: :model do
       end
 
       it 'item_idが空のとき' do
-        @purchase_record_address.item_id = nil
+        @purchase_record_address.item_id= nil
         @purchase_record_address.valid?
         expect(@purchase_record_address.errors.full_messages).to include("Item can't be blank")
       end
