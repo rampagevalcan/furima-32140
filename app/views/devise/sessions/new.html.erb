@@ -1,5 +1,9 @@
 <%= render "shared/second-header"%>
 
+<div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
 <%= form_with model: @user,url: user_session_path, local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
