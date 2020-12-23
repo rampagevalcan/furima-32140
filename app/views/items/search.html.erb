@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta charset="UTF-8">
+<link rel="stylesheet" href="search.css">
+</head>
+
+<body>
+<div class='item-contents'>
+    <h2 class='title'>検索結果</h2>
+    <%= link_to '投稿商品', "#", class: "subtitle" %>
+    <ul class='item-lists'>
+ <% @results.each do |result| %>
+        <li class='list'>
+        <%= link_to item_path(result.id),method: :get, class:'list' do %>
+        <div class='item-img-content'>
+          <%= image_tag result.image, class: "item-img" if result.image.attached? %>
+
+          <% if result.purchase_record.present? %>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+          <% end %>
+
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= result.item_name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= result.price %>円<br><%= '配送料負担' %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+  <% end %> 
+ <% end %>
+ <%= link_to 'トップページへ戻る', root_path %>
+</body>
+</html>

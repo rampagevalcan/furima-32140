@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :search_product, only: [:index, :search]
   def index
     @items = Item.includes(:user).order('created_at DESC')
+    @p = Item.ransack(params[:q])
+    set_product_column
   end
 
   def new
@@ -19,6 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @p = Item.ransack(params[:q])
+    set_product_column
   end
 
   def edit
@@ -39,6 +44,12 @@ class ItemsController < ApplicationController
     redirect_to root_path if @item.destroy
   end
 
+  def search
+    # @results = @p.result
+    @p = Item.ransack(params[:q])
+    @results = @p.result
+  end
+
   private
 
   def item_params
@@ -47,5 +58,13 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def search_product
+    @p = Item.ransack(params[:q])
+  end
+
+  def set_product_column
+    @item_name = Item.select("item_name").distinct
   end
 end
