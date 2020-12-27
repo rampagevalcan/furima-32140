@@ -13,7 +13,18 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      <li>
+      <%= link_to 'カテゴリー', "#", class: "category-list" %>
+      <%= search_form_for @p,url: items_search_path do |f| %>
+      <% f.label :category_id_eq %> 
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name %>
+      <button class="search-button">
+        <%= image_tag "search.png", class: "search-icon" %>
+        <% f.submit %>
+      </button>
+      <% end %>
+      </li>
+
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
     <ul class='lists-right'>
